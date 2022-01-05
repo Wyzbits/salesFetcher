@@ -1,3 +1,4 @@
+import { autoScroll } from "./autoScroll";
 import puppeteer from "puppeteer";
 
 const createBrowser = async (url: string) => {
@@ -6,6 +7,7 @@ const createBrowser = async (url: string) => {
   });
   const page = await browser.newPage();
   await page.goto(url);
+  //await autoScroll(page);
   const pageData = await page.evaluate(() => {
     return {
       html: document.documentElement.innerHTML,
